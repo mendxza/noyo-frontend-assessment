@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+:root {
+  --shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  --primary: rgb(255, 255, 255);
+  --secondary: rgb(241, 241, 241);
+  --border: 2px outset rgb(233, 233, 233);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:is(h1, h2, h3, h4, h5, h6) {
+  color: rgb(94, 94, 94);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  border-radius: 5px;
+  font-family: 'Raleway';
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  width: 100%;
+  background-color: #73b7ff;
+}
+
+.homepage {
   display: flex;
+}
+
+.noValues {
+  display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-top: 30vh;
+}
+
+.addressContainer {
+  background-color: var(--secondary);
+  box-shadow: var(--shadow);
+  margin: 2% 3% 0 1%;
+  overflow: scroll;
+  min-height: 70vh;
+  border: var(--border);
+  padding: 0 4% 2% 4%;
+}
+
+.eventsContainer {
+  box-shadow: var(--shadow);
+  background-color: var(--secondary);
+  margin-top: 0.75em;
+  overflow: scroll;
+  min-height: 79.2vh;
+  border: var(--border);
+  padding: 0 2em 1em 2em;
+}
+
+.eventsContainer div {
+  display: flex;
+  align-items: center;
+}
+
+.eventsContainer div button {
+  margin-left: 1em;
+}
+
+.event {
+  background-color: white;
+  display: flex;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 0 1.5em 0 1.5em;
+  margin-top: 1em;
+}
+
+.event p {
+  margin-left: auto;
+}
+
+p:last-of-type {
+  margin-left: auto;
+}
+
+.title {
+  display: flex;
+  font-weight: bolder;
+  border-radius: 0;
+  background-image: linear-gradient(#b6d9ff, #73b7ff);
   color: white;
+  padding: 1.5% 0 3% 2.5%;
+  margin: 0 0 0 0;
+  font-size: 2em;
 }
 
-.App-link {
-  color: #61dafb;
+.compare {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.compare button {
+  margin: 0 0 0.5em 0;
+}
+
+.addressCard {
+  background-color: white;
+  padding: 2% 5% 2% 5%;
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.event {
+  display: flex;
+  align-items: center;
+  justify-items: space-around;
+}
+
+.changeDetails {
+  box-shadow: var(--shadow);
+  background-color: var(--secondary);
+  margin: 1em 2em 0 1em;
+  overflow: scroll;
+  min-width: 45vw;
+  min-height: 75vh;
+  max-height: 75vh;
+}
+
+.singleCompareDetail {
+  box-shadow: var(--shadow);
+  background-color: white;
+  border: 0.2em outset;
+
+  padding-bottom: 1em;
+  margin-bottom: 1em;
 }
