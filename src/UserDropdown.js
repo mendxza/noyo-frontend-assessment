@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
+import { setSelectedUser, resetUser } from './actions';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { connect } from 'react-redux';
-import { setSelectedUser, resetUser } from './actions';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -16,9 +15,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function NativeSelects({ users, setSelectedUser, selectedUser, resetUser }) {
+function UserDropdown({ users, setSelectedUser, selectedUser, resetUser }) {
   const classes = useStyles();
 
+  // adds users to the dropdown
   const usersArr = users.map((user, i) => {
     return (
       <option key={`user${i}`} value={user}>
@@ -40,11 +40,7 @@ function NativeSelects({ users, setSelectedUser, selectedUser, resetUser }) {
           value={selectedUser}
           onChange={(e) => toggleUserSelect(e.target.value)}
           label='User Id'
-          // inputProps={{
-          //   name: 'age',
-          //   id: 'outlined-age-native-simple',
-          // }}
-          style={{ backgroundColor: 'white' }}
+          style={{ backgroundColor: 'var(--secondary)' }}
         >
           <option aria-label='None' value='' />
           {usersArr}
@@ -64,4 +60,4 @@ const mapStateToProps = (state) => {
   return { users, selectedUser };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NativeSelects);
+export default connect(mapStateToProps, mapDispatchToProps)(UserDropdown);

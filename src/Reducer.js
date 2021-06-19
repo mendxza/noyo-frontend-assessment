@@ -1,11 +1,11 @@
 import {
-  SET_ADDRESS_EVENTS,
-  SET_SELECTED_USER,
   SET_USERS,
-  SELECT_ITEM,
-  COMPARE_EVENTS,
-  RESET_USER,
+  SET_SELECTED_USER,
+  GET_EVENTS,
   CLEAR_EVENTS,
+  COMPARE_EVENTS,
+  SELECT_ITEM,
+  RESET_USER,
 } from './constants';
 
 const initialState = {
@@ -30,23 +30,24 @@ const Reducer = (state = initialState, action) => {
       events: [],
     };
   }
-  if (action.type === CLEAR_EVENTS) {
-    return { ...state, events: [] };
-  }
-  if (action.type === SET_ADDRESS_EVENTS) {
+  if (action.type === GET_EVENTS) {
     const events = action.payload;
     return { ...state, events };
   }
+  if (action.type === CLEAR_EVENTS) {
+    return { ...state, events: [] };
+  }
+  if (action.type === COMPARE_EVENTS) {
+    const compareEvents = action.payload;
+    return { ...state, compareEvents };
+  }
+  // toggles the selection of addressCards or addressEvent
   if (action.type === SELECT_ITEM) {
     const { index, item } = action.payload;
     const items = [...state[item]];
     const toggle = items[index];
     toggle.selected = !toggle.selected;
     return { ...state, [item]: items };
-  }
-  if (action.type === COMPARE_EVENTS) {
-    const compareEvents = action.payload;
-    return { ...state, compareEvents };
   }
   if (action.type === RESET_USER) {
     const { users } = state;

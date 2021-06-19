@@ -22,6 +22,7 @@ const AddressCard = ({
   return (
     <div
       className='addressCard'
+      // toggles style of card when selected
       style={
         selected
           ? { backgroundColor: 'rgb(180, 180, 180)', borderStyle: 'inset' }
@@ -29,7 +30,6 @@ const AddressCard = ({
       }
       onClick={() => {
         selected ? clearEvents() : getEvents();
-
         selectItem({ index, item: 'addresses' });
       }}
     >

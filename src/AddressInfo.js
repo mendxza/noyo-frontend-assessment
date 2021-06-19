@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import AddressCard from './AddressCard';
 
-function AddressContainer({ addresses }) {
+function AddressInfo({ addresses }) {
+  
   const addressCards = addresses.map((el, i) => {
     return <AddressCard key={`address${i}`} {...el} index={i} />;
   });
@@ -12,7 +13,7 @@ function AddressContainer({ addresses }) {
       {addressCards.length ? (
         addressCards
       ) : (
-        <p className='noValues'>None Selected</p>
+        <h5 className='noValues'>None Selected</h5>
       )}
     </div>
   );
@@ -22,4 +23,4 @@ const mapStateToProps = (state) => {
   const { addresses } = state;
   return { addresses };
 };
-export default connect(mapStateToProps, null)(AddressContainer);
+export default connect(mapStateToProps, null)(AddressInfo);

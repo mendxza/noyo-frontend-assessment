@@ -1,28 +1,15 @@
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { selectItem, compareEvents } from './actions';
-
 import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
-import FormGroup from '@material-ui/core/FormGroup';
+import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
-
-const GreenCheckbox = withStyles({
+// toggles checkbox color
+const BlueCheckbox = withStyles({
   root: {
     color: blue[400],
     '&$checked': {
@@ -32,17 +19,17 @@ const GreenCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color='default' {...props} />);
 
-function RightContainer({ events, selectItem, compareEvents }) {
-  const classes = useStyles();
+function EventsInfo({ events, selectItem, compareEvents }) {
   const history = useHistory();
 
+  // array of all events components for address
   const eventsArray = events.map((event, i) => {
     const { type, created_at, selected } = event;
     return (
       <div key={`event${i}`} className='event'>
         <FormControlLabel
           control={
-            <GreenCheckbox
+            <BlueCheckbox
               checked={selected}
               onChange={() => selectItem({ index: i, item: 'events' })}
               name='checkedG'
@@ -67,7 +54,7 @@ function RightContainer({ events, selectItem, compareEvents }) {
                 color='primary'
                 onClick={() => {
                   compareEvents(events);
-                  history.push('/rightcontainer');
+                  history.push('/compare');
                 }}
               >
                 Compare
@@ -78,7 +65,7 @@ function RightContainer({ events, selectItem, compareEvents }) {
         ) : (
           <>
             <h4>Events</h4>
-            <p className='noValues'>None Selected</p>
+            <h5 className='noValues'>None Selected</h5>
           </>
         )}
       </div>
@@ -96,4 +83,4 @@ const mapStateToProps = (state) => {
   return { events };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RightContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(EventsInfo);

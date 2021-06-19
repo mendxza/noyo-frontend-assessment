@@ -1,10 +1,8 @@
-import { connect } from 'react-redux';
-
-import './App.css';
-import LeftConatiner from './LeftContainer';
-import RightContainer from './RightContainer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import DiffViewer from './DiffViewer';
+import UserAddressContainer from './UserAddressContainer';
+import EventsInfo from './EventsInfo';
+import DiffViewer from './CompareViewer';
+import './App.css';
 
 function App() {
   return (
@@ -14,12 +12,12 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <div className='homepage'>
-              <LeftConatiner />
+              <UserAddressContainer />
               <hr></hr>
-              <RightContainer />
+              <EventsInfo />
             </div>
           </Route>
-          <Route path='/rightcontainer'>
+          <Route path='/compare'>
             <DiffViewer />
           </Route>
         </Switch>
@@ -28,9 +26,4 @@ function App() {
   );
 }
 
-const mapStateToProps = (state) => {
-  const { name } = state;
-  return { name };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

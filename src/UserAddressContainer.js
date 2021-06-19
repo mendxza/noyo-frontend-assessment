@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { NativeSelect } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
-import AddressContainer from './AddressContainer';
-import NativeSelects from './NativeSelects';
 import { setUsers } from './actions';
+import Container from '@material-ui/core/Container';
+import AddressInfo from './AddressInfo';
+import UserDropdown from './UserDropdown';
 
-function LeftConatiner({ setUsers }) {
+function UserAddressContainer({ setUsers }) {
   useEffect(() => {
     fetch('/user_ids')
       .then((resp) => resp.json())
@@ -15,8 +14,8 @@ function LeftConatiner({ setUsers }) {
 
   return (
     <Container>
-      <NativeSelects />
-      <AddressContainer />
+      <UserDropdown />
+      <AddressInfo />
     </Container>
   );
 }
@@ -25,4 +24,4 @@ const mapDispatchToProps = (dispatch) => ({
   setUsers: (users) => dispatch(setUsers(users)),
 });
 
-export default connect(null, mapDispatchToProps)(LeftConatiner);
+export default connect(null, mapDispatchToProps)(UserAddressContainer);
