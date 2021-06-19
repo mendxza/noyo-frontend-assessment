@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserAddressContainer from './UserAddressContainer';
 import EventsInfo from './EventsInfo';
-import DiffViewer from './CompareViewer';
+import CompareViewer from './CompareViewer';
 import '../App.css';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
             </div>
           </Route>
           <Route path='/compare'>
-            <DiffViewer />
+            <CompareViewer />
           </Route>
         </Switch>
       </div>
