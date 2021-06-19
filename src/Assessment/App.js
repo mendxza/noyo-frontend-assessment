@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserAddressContainer from './UserAddressContainer';
 import EventsInfo from './EventsInfo';
 import DiffViewer from './CompareViewer';
-import './App.css';
+import '../App.css';
 
 function App() {
   return (

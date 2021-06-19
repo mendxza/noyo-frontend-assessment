@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { selectItem, compareEvents } from './actions';
+import { selectItem, compareEvents } from '../actions';
 import { withStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Container from '@material-ui/core/Container';

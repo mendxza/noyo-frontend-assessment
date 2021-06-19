@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getEvents, selectItem, clearEvents } from './actions';
+import { getEvents, selectItem, clearEvents } from '../actions';
 
 const AddressCard = ({
   id,

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setUsers } from './actions';
+import { setUsers } from '../actions';
 import Container from '@material-ui/core/Container';
 import AddressInfo from './AddressInfo';
 import UserDropdown from './UserDropdown';
