@@ -44,7 +44,7 @@ function EventsInfo({ events, selectItem, compareEvents }) {
 
   return (
     <Container>
-      <div className='eventsContainer'>
+      <div className='events-container'>
         {eventsArray.length ? (
           <>
             <div>
@@ -65,7 +65,7 @@ function EventsInfo({ events, selectItem, compareEvents }) {
         ) : (
           <>
             <h4>Events</h4>
-            <h5 className='noValues'>None Selected</h5>
+            <h5 className='no-values'>None Selected</h5>
           </>
         )}
       </div>

@@ -29,7 +29,8 @@ export const setSelectedUser = (userId) => {
           type: SET_SELECTED_USER,
           payload: { userId, addressArray },
         });
-      });
+      })
+      .catch((err) => console.log('Error getting address information', err));
   };
 };
 
@@ -46,7 +47,8 @@ export const getEvents = (addressId) => {
           type: GET_EVENTS,
           payload: addressArr,
         });
-      });
+      })
+      .catch((err) => console.log('Error getting address events', err));
   };
 };
 export const clearEvents = () => {
@@ -69,7 +71,9 @@ export const compareEvents = (events) => {
       { fetchUrL: [], changeDetail: [] }
     );
 
-    const eventChanges = await Promise.all(selectedEvents.fetchUrL);
+    const eventChanges = await Promise.all(
+      selectedEvents.fetchUrL
+    ).catch((err) => console.log('Error getting event url', err));
     const { changeDetail } = selectedEvents;
     dispatch({
       type: COMPARE_EVENTS,

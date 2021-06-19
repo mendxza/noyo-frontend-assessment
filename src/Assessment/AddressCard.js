@@ -21,7 +21,7 @@ const AddressCard = ({
 }) => {
   return (
     <div
-      className='addressCard'
+      className='address-card'
       // toggles style of card when selected
       style={
         selected

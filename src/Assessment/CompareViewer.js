@@ -8,10 +8,10 @@ import Button from '@material-ui/core/Button';
 function CompareViewer({ compareEvents }) {
   const history = useHistory();
 
-  // creates components for event changes and change details
+  // creates components for event changes or change details
   const compareItems = (eventArray, type) =>
     eventArray.map((event, i) => (
-      <Container className='singleCompareDetail' key={`JSONpretty${i}`}>
+      <Container className='single-compare-detail' key={`JSONpretty${i}`}>
         {type === 'event' ? (
           <h4>{i + 1}</h4>
         ) : (
@@ -34,23 +34,23 @@ function CompareViewer({ compareEvents }) {
         >
           Go Back
         </Button>
-        <Container className='changeDetails'>
+        <Container className='change-details'>
           <h4>Event Changes</h4>
           {compareEvents ? (
             compareItems(compareEvents.eventChanges, 'event')
           ) : (
-            <h1 className='noValues'>None Selected</h1>
+            <h1 className='no-values'>None Selected</h1>
           )}
         </Container>
       </div>
       <hr></hr>
-      <div className='changeDetails'>
+      <div className='change-details'>
         <Container>
           <h4>Event Change Detail</h4>
           {compareEvents ? (
             compareItems(compareEvents.changeDetail.slice(1), 'detail')
           ) : (
-            <h1 className='noValues'>None Selected</h1>
+            <h1 className='no-values'>None Selected</h1>
           )}
         </Container>
       </div>

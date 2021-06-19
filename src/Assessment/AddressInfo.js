@@ -2,18 +2,17 @@ import { connect } from 'react-redux';
 import AddressCard from './AddressCard';
 
 function AddressInfo({ addresses }) {
-  
   const addressCards = addresses.map((el, i) => {
     return <AddressCard key={`address${i}`} {...el} index={i} />;
   });
 
   return (
-    <div className='addressContainer '>
+    <div className='address-container '>
       <h4>Address Information</h4>
       {addressCards.length ? (
         addressCards
       ) : (
-        <h5 className='noValues'>None Selected</h5>
+        <h5 className='no-values'>None Selected</h5>
       )}
     </div>
   );

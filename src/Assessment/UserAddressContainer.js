@@ -10,7 +10,7 @@ function UserAddressContainer({ setUsers }) {
     fetch('/user_ids')
       .then((resp) => resp.json())
       .then((users) => setUsers(users))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error getting user id's", err));
   }, []);
 
   return (
