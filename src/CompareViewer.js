@@ -16,7 +16,7 @@ function CompareViewer({ compareEvents }) {
           <h4>{i + 1}</h4>
         ) : (
           <h4>
-            {i + 1} => {i + 2}
+            Change {i + 1} to {i + 2}
           </h4>
         )}
         <JSONPretty id='json-pretty' data={event}></JSONPretty>
