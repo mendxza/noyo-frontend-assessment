@@ -9,7 +9,8 @@ function UserAddressContainer({ setUsers }) {
   useEffect(() => {
     fetch('/user_ids')
       .then((resp) => resp.json())
-      .then((users) => setUsers(users));
+      .then((users) => setUsers(users))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
